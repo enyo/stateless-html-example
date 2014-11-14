@@ -100,9 +100,6 @@
     // Firing off a standard AJAX request
     var xmlhttp = new XMLHttpRequest();
 
-    // Tells the browser to retrieve the response as a HTML document
-    xmlhttp.responseType = "document";
-
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4) {
         if(xmlhttp.status == 200) {
@@ -117,6 +114,10 @@
     }
 
     xmlhttp.open("GET", href, true);
+
+    // Tells the browser to retrieve the response as a HTML document
+    xmlhttp.responseType = "document";
+
     xmlhttp.send();
 
   }
