@@ -5,8 +5,8 @@ site: about
 
 # About
 
-This page is only a proof of concept for an article I wrote.
+This page serves as an example, that even links that are in the page downloaded
+with AJAX are properly handled by JS, without special implementation.
 
 [Go back to home](index.html)  
-(Even though this link has been downloaded and inserted with JS, it is still
-properly handled by JS)
+(Clicking this link does load the home page with AJAX)
