@@ -5,16 +5,15 @@
 
 
 
-var mainDiv, fakeSlowConnectionCheckbox;
-
 /**
  * The init() function gets invoked immediately to replace all links to be
  * handled by AJAX requests
  */
 !function init() {
 
-  mainDiv = document.getElementById("main");
-  fakeSlowConnectionCheckbox = document.getElementById("fake-slow-connection");
+  var mainDiv = document.getElementById("main");
+  var fakeSlowConnectionCheckbox = document.getElementById("fake-slow-connection");
+
 
   convertLinks();
 
@@ -28,26 +27,24 @@ var mainDiv, fakeSlowConnectionCheckbox;
     // Get all links
     var links = documentRoot.querySelectorAll("a");
     
-    for (var i = 0; i < links.length; i++) {
-      var link = links[i];
+    // Hack to convert the NodeList to an Array... JavaScript :(
+    Array.prototype.slice.call(links)
+      .filter(function(link) {
+        // Remove all links that aren't local. We are only interested in
+        // relative links.
+        return link.getAttribute("href").indexOf("http") !== 0;
+      })
+      .forEach(function(link) {
+        var title = link.innerHTML;
 
-      // Need to capture the link variable in a closure
-      !function(link) {
-        var href = link.getAttribute("href")
-            title = link.innerHTML;
+        link.addEventListener("click", function(e) {
+          // Make sure that the browser doesn't actually follow the link
+          e.preventDefault();
 
-        // We are only interested in relative links
-        if (href.indexOf("http") !== 0) {
-          link.addEventListener("click", function(e) {
-            // Make sure that the browser doesn't actually follow the link
-            e.preventDefault();
+          goToPage(link.getAttribute("href"), title);
+        });
+      });
 
-            onClick(link);
-          });
-        }
-      }(link);
-
-    }
   }
 
 
@@ -63,21 +60,6 @@ var mainDiv, fakeSlowConnectionCheckbox;
   };
 
 
-
-  /**
-   * Invoked when a link is clicked
-   */
-  function onClick(link) {
-    // // Remove the active class from all links
-    // for (var i = 0; i < links.length; i++) {
-    //   links[i].classList.remove("active");
-    // }
-
-    // // Add active class to correct link
-    // link.classList.add("active");
-
-    goToPage(link.getAttribute("href"), title);    
-  }
 
 
 
@@ -103,10 +85,9 @@ var mainDiv, fakeSlowConnectionCheckbox;
 
     document.body.classList.add("loading-content");
 
-    console.log(menuLinks);
     for (var i = 0; i < menuLinks.length; i++) {
       var link = menuLinks[i];
-      console.log(link);
+
       if (link.getAttribute("href") == href) {
         link.classList.add("active");
       }
@@ -126,7 +107,7 @@ var mainDiv, fakeSlowConnectionCheckbox;
       if (xmlhttp.readyState == 4) {
         if(xmlhttp.status == 200) {
 
-          var fakeDelay = fakeSlowConnectionCheckbox.checked ? 500 : 0;
+          var fakeDelay = fakeSlowConnectionCheckbox.checked ? 400 : 0;
           setTimeout(function() { finishedLoading(xmlhttp.response); }, fakeDelay);
           
 
