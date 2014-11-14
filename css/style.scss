@@ -33,6 +33,7 @@ footer {
 
 nav {
   a {
+    color: #888;
     display: inline-block;
     border: 1px solid #ddd;
     border-radius: 2px;
@@ -43,6 +44,10 @@ nav {
     background: #fafafa;
     &:hover {
       background: #f0f0f0;
+    }
+
+    &.active {
+      color: black;
     }
   }
 }

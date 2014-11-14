@@ -13,10 +13,12 @@
 
 <header>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="contact.html">Contact</a>
-    <a href="about.html">About</a>
+    <a href="index.html" {% if page.site == 'home' %}class="active"{% endif %}>Home</a>
+    <a href="contact.html" {% if page.site == 'contact' %}class="active"{% endif %}>Contact</a>
+    <a href="about.html" {% if page.site == 'about' %}class="active"{% endif %}>About</a>
   </nav>
+
+  <label><input id="fake-slow-connection" type="checkbox" checked> Fake slow connection</label>
 </header>
 
 

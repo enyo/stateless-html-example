@@ -1,5 +1,6 @@
 ---
 layout: default
+site: contact
 ---
 
 # Contact
