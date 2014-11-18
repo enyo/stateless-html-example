@@ -1,6 +1,16 @@
 /**
  * This file gets loaded when the site finished loaded, because it has been
  * included with `defer`.
+ *
+ *
+ * * * * * * *
+ * DISCLAIMER 
+ * * * * * * *
+ * 
+ * This page is a proof of concept and only works on modern browsers (IE9+,
+ * and standard Firefox, Chrome and Opera). It would be easy to adapt the
+ * code to work in older browser versions, but I wanted to keep the source
+ * code as simple as possible.
  */
 
 
