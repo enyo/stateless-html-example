@@ -6,7 +6,7 @@ site: home
 # Home
 
 This is the proof of concept implementation for
-[the post on stateless HTML](http://www.colorglare.com).
+[the post on stateless HTML](http://www.colorglare.com/2014/11/24/stateless-html.html).
 
 
 This site is hosted by GitHub, so there is no server logic, only static HTML
