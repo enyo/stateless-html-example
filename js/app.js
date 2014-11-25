@@ -48,6 +48,10 @@
         var title = link.innerHTML;
 
         link.addEventListener("click", function(e) {
+
+          // Make sure that Cmd- or Ctrl-Click still opens the link in a new tab
+          if (e.metaKey || e.ctrlKey) return;
+
           // Make sure that the browser doesn't actually follow the link
           e.preventDefault();
 
