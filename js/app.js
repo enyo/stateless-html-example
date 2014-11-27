@@ -21,7 +21,7 @@
  */
 !function init() {
 
-  var mainDiv = document.getElementById("main");
+  var mainElement = document.querySelector("main");
   var fakeSlowConnectionCheckbox = document.getElementById("fake-slow-connection");
 
 
@@ -97,7 +97,7 @@
 
     console.log("Loading page " + href);
 
-    document.body.setAttribute("aria-busy", "true");
+    mainElement.setAttribute("aria-busy", "true");
 
     for (var i = 0; i < menuLinks.length; i++) {
       var link = menuLinks[i];
@@ -138,15 +138,15 @@
 
   function finishedLoading(responseHtml) {
 
-    document.body.setAttribute("aria-busy", "false");
+    mainElement.setAttribute("aria-busy", "false");
 
     // Extract the #main div from the response, and update our
     // current div.
     // This is where the magic happens
-    mainDiv.innerHTML = responseHtml.querySelector("#main").innerHTML;
+    mainElement.innerHTML = responseHtml.querySelector("main").innerHTML;
 
     // Make sure that all links in the newly loaded main div are converted.
-    convertLinks(mainDiv);
+    convertLinks(mainElement);
 
   }
 
