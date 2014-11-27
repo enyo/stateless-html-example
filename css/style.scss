@@ -54,7 +54,7 @@ nav {
 
 
 #main {
-  .loading-content & {
+  [aria-busy="true"] & {
     opacity: 0.4;
   }
 }

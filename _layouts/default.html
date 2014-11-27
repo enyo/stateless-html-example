@@ -12,24 +12,24 @@
 
 
 <header>
-  <nav>
-    <a href="index.html" {% if page.site == 'home' %}class="active"{% endif %}>Home</a>
-    <a href="contact.html" {% if page.site == 'contact' %}class="active"{% endif %}>Contact</a>
-    <a href="about.html" {% if page.site == 'about' %}class="active"{% endif %}>About</a>
+  <nav role="navigation">
+    <a aria-label="home page" href="index.html" {% if page.site == 'home' %}class="active"{% endif %}>Home</a>
+    <a aria-label="contact me" href="contact.html" {% if page.site == 'contact' %}class="active"{% endif %}>Contact</a>
+    <a aria-label="about me" href="about.html" {% if page.site == 'about' %}class="active"{% endif %}>About</a>
   </nav>
 
   <label><input id="fake-slow-connection" type="checkbox" checked> Fake slow connection</label>
 </header>
 
 
-<section id="main">
+<main id="main" role="main">
 
   {{ content }}
 
-</section>
+</main>
 
 
-<footer>
+<footer role="contentinfo">
   Copyright (c) 2014<br>
   <a href="https://github.com/enyo/stateless-html-example">See the source</a>
 </footer>
