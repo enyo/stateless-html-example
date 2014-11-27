@@ -4,9 +4,9 @@
  *
  *
  * * * * * * *
- * DISCLAIMER 
+ * DISCLAIMER
  * * * * * * *
- * 
+ *
  * This page is a proof of concept and only works on modern browsers (IE9+,
  * and standard Firefox, Chrome and Opera). It would be easy to adapt the
  * code to work in older browser versions, but I wanted to keep the source
@@ -36,7 +36,7 @@
 
     // Get all links
     var links = documentRoot.querySelectorAll("a");
-    
+
     // Hack to convert the NodeList to an Array... JavaScript :(
     Array.prototype.slice.call(links)
       .filter(function(link) {
@@ -97,7 +97,7 @@
 
     console.log("Loading page " + href);
 
-    document.body.classList.add("loading-content");
+    document.body.setAttribute("aria-busy", "true");
 
     for (var i = 0; i < menuLinks.length; i++) {
       var link = menuLinks[i];
@@ -120,7 +120,7 @@
 
           var fakeDelay = fakeSlowConnectionCheckbox.checked ? 400 : 0;
           setTimeout(function() { finishedLoading(xmlhttp.response); }, fakeDelay);
-          
+
 
         }
         else { alert("something else other than 200 was returned"); }
@@ -138,7 +138,7 @@
 
   function finishedLoading(responseHtml) {
 
-    document.body.classList.remove("loading-content");
+    document.body.setAttribute("aria-busy", "false");
 
     // Extract the #main div from the response, and update our
     // current div.

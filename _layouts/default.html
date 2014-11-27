@@ -12,7 +12,7 @@
 
 
 <header>
-  <nav>
+  <nav role="navigation">
     <a href="index.html" {% if page.site == 'home' %}class="active"{% endif %}>Home</a>
     <a href="contact.html" {% if page.site == 'contact' %}class="active"{% endif %}>Contact</a>
     <a href="about.html" {% if page.site == 'about' %}class="active"{% endif %}>About</a>
@@ -22,14 +22,14 @@
 </header>
 
 
-<section id="main">
+<main id="main" role="main">
 
   {{ content }}
 
-</section>
+</main>
 
 
-<footer>
+<footer role="contentinfo">
   Copyright (c) 2014<br>
   <a href="https://github.com/enyo/stateless-html-example">See the source</a>
 </footer>
