@@ -13,9 +13,9 @@
 
 <header>
   <nav role="navigation">
-    <a aria-label="home page" href="index.html" {% if page.site == 'home' %}class="active"{% endif %}>Home</a>
-    <a aria-label="contact me" href="contact.html" {% if page.site == 'contact' %}class="active"{% endif %}>Contact</a>
-    <a aria-label="about me" href="about.html" {% if page.site == 'about' %}class="active"{% endif %}>About</a>
+    <a href="index.html" {% if page.site == 'home' %}class="active"{% endif %}>Home</a>
+    <a href="contact.html" {% if page.site == 'contact' %}class="active"{% endif %}>Contact</a>
+    <a href="about.html" {% if page.site == 'about' %}class="active"{% endif %}>About</a>
   </nav>
 
   <label><input id="fake-slow-connection" type="checkbox" checked> Fake slow connection</label>
