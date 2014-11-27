@@ -5,7 +5,7 @@ site: home
 
 # Home
 
-This is the proof of concept implementation for
+This is the implementation for
 [the post on stateless HTML](http://www.colorglare.com/2014/11/24/stateless-html.html).
 
 
